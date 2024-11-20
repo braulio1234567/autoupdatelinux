@@ -1,0 +1,25 @@
+#!/bin/bash
+#debe ser añadido en el crontab o anacron de el root
+fecha=$(date +%F)
+#fecha=$(echo $fecha | tr -s "/" "-")
+echo "------">> "/var/log/autoupdate $fecha.log"
+echo "------" >> "/var/log/autoupdateerr $fecha.log"
+echo "apt update" >> "/var/log/autoupdate $fecha.log"
+echo "apt update" >> "/var/log/autoupdateerr $fecha.log"
+echo "------">> "/var/log/autoupdate $fecha.log"
+echo "------" >> "/var/log/autoupdateerr $fecha.log"
+apt update 1>> "/var/log/autoupdate $fecha.log" 2>> "/var/log/autoupdateerr $fecha.log"
+echo "------">> "/var/log/autoupdate $fecha.log"
+echo "------" >> "/var/log/autoupdateerr $fecha.log"
+echo "apt upgrade" >> "/var/log/autoupdate $fecha.log"
+echo "apt upgrade" >> "/var/log/autoupdateerr $fecha.log"
+echo "------">> "/var/log/autoupdate $fecha.log"
+echo "------" >> "/var/log/autoupdateerr $fecha.log"
+apt upgrade -y 1>> "/var/log/autoupdate $fecha.log" 2>> "/var/log/autoupdateerr $fecha.log"
+echo "------">> "/var/log/autoupdate $fecha.log"
+echo "------" >> "/var/log/autoupdateerr $fecha.log"
+echo "apt full-upgrade" >> "/var/log/autoupdate $fecha.log"
+echo "apt full-upgrade" >> "/var/log/autoupdateerr $fecha.log"
+echo "------">> "/var/log/autoupdate $fecha.log"
+echo "------" >> "/var/log/autoupdateerr $fecha.log"
+apt full-upgrade -y 1>> "/var/log/autoupdate $fecha.log" 2>> "/var/log/autoupdateerr $fecha.log"
